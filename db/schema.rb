@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814143325) do
+ActiveRecord::Schema.define(version: 20150814161316) do
+
+  create_table "identities", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "provider",   limit: 64, null: false
+    t.string   "uid",        limit: 64, null: false
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
+  end
+
+  add_index "identities", ["provider", "uid"], name: "index_identities_on_provider_and_uid", unique: true
+  add_index "identities", ["user_id"], name: "index_identities_on_user_id", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname",   limit: 64, null: false
