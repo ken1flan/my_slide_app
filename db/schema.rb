@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814161316) do
+ActiveRecord::Schema.define(version: 20150815082917) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,6 +23,19 @@ ActiveRecord::Schema.define(version: 20150814161316) do
 
   add_index "identities", ["provider", "uid"], name: "index_identities_on_provider_and_uid", unique: true
   add_index "identities", ["user_id"], name: "index_identities_on_user_id", unique: true
+
+  create_table "slides", force: :cascade do |t|
+    t.string   "title",       limit: 64,                 null: false
+    t.string   "image_url"
+    t.string   "description",                            null: false
+    t.text     "body"
+    t.integer  "user_id",                                null: false
+    t.boolean  "published",              default: false, null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "slides", ["user_id"], name: "index_slides_on_user_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "nickname",   limit: 64, null: false

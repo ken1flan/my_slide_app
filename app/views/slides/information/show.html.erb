@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-4">
+    <%= render "slides/summary", slide: @slide, operation: false %>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <%= @slide.title %>
+  </div>
+  <div class="panel-body">
+    <div class="markdown-body">
+      <%= raw markdown_to_html @slide.body %>
+    </div>
+  </div>
+</div>
+
+<%= link_to 'Edit', edit_slide_path(@slide), class: "btn btn-primary" if @slide.user == current_user %>
+<%= link_to 'Back', slides_path, class: "btn btn-default" %>

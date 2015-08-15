@@ -1,0 +1,37 @@
+<%= form_for(@slide) do |f| %>
+  <% if @slide.errors.any? %>
+    <div class="panel panel-warning">
+      <h2><%= pluralize(@slide.errors.count, "error") %> prohibited this slide from being saved:</h2>
+
+      <ul>
+      <% @slide.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control", placeholder: "Input title" %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :image_url %><br>
+    <%= f.text_field :image_url, class: "form-control", placeholder: "Input image URL. e.g. http://www.google.com/images/srpr/logo11w.png" %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :description %><br>
+    <%= f.text_field :description, class: "form-control", placeholder: "Input description" %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: "form-control", rows: 20, placeholder: "Input slide text by markdown." %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :published %><br>
+    <%= f.check_box :published, class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: "btn btn-primary", data: { disable_with: "Sending..." } %>
+  </div>
+<% end %>

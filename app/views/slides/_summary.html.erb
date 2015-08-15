@@ -1,0 +1,32 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="media">
+      <% if slide.image_url %>
+        <div class="media-left">
+          <%= link_to slide do %>
+            <%= image_tag slide.image_url, class: "media-object", style: "width: 64px; height: 64px;" %>
+          <% end %>
+        </div>
+      <% end %>
+      <div class="media-body">
+        <h4 class="media-heading"><%= link_to slide.title, slide %></h4>
+        <%= slide.description %>
+        <br>
+        <span class="pull-right mute small">
+          <%= slide.user.nickname %>
+        </span>
+      </div>
+    </div>
+  </div>
+  <% if operation %>
+    <div class="panel-footer">
+      <%= link_to "Show", slide, class: "btn btn-primary" %>
+      <%= link_to "Info", slide_information_path(slide), class: "btn btn-default" %>
+      <% if slide.user == current_user %>
+        |
+        <%= link_to "Edit", edit_slide_path(slide), class: "btn btn-primary" %>
+        <%= link_to 'Destroy', slide, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

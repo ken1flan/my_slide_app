@@ -11,6 +11,7 @@
 
 class User < ActiveRecord::Base
   has_many :identities, dependent: :destroy
+  has_many :slides
 
   validates :nickname,
     presence: true,
