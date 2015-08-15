@@ -16,7 +16,8 @@
         <div class="collapse navbar-collapse">
           <% if user_signed_in? %>
             <ul class="nav navbar-nav navbar-right">
-              <li><%= current_user.nickname %></li>
+              <li><a href="#"><%= current_user.nickname %></a></li>
+              <li><%= link_to "sign out", signout_path %></li>
             </ul>
           <% else %>
             <ul class="nav navbar-nav navbar-right">
@@ -28,6 +29,12 @@
     </nav>
 
     <div class="container">
+      <% if flash[:notice] %>
+        <div class="alert alert-info">
+          <%= flash[:notice] %>
+        </div>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>
