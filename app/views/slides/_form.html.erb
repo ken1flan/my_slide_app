@@ -1,13 +1,20 @@
-<%= form_for(@slide) do |f| %>
-  <% if @slide.errors.any? %>
-    <div class="panel panel-warning">
-      <h2><%= pluralize(@slide.errors.count, "error") %> prohibited this slide from being saved:</h2>
+<%
+  form_data_option = remote ? { remote: true } : {}
+%>
 
-      <ul>
-      <% @slide.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<%= form_for(@slide, data: form_data_option ) do |f| %>
+  <% if @slide.errors.any? %>
+    <div class="panel panel-danger">
+      <div class="panel-heading">
+        <%= pluralize(@slide.errors.count, "error") %> prohibited this slide from being saved:
+      </div>
+      <div class="panel-body">
+        <ul>
+        <% @slide.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
     </div>
   <% end %>
 
