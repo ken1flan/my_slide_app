@@ -1,9 +1,11 @@
 <h1>
   Editing Slide
   <%= link_to 'Show', @slide, class: "btn btn-default", target: "blank" %>
+  <%= link_to "Info", slide_information_path(@slide), class: "btn btn-default", target: "blank"  %>
 </h1>
 
 <%= render 'form' %>
 
 <%= link_to 'Show', @slide, class: "btn btn-default btn-sm", target: "blank" %>
+<%= link_to "Info", slide_information_path(@slide), class: "btn btn-default btn-sm", target: "blank"  %>
 <%= link_to 'Back', slides_path, class: "btn btn-default btn-sm" %>

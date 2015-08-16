@@ -20,10 +20,9 @@
   </div>
   <% if operation %>
     <div class="panel-footer">
-      <%= link_to "Show", slide, class: "btn btn-primary" %>
+      <%= link_to "Show", slide, class: "btn btn-info" %>
       <%= link_to "Info", slide_information_path(slide), class: "btn btn-default" %>
       <% if slide.user == current_user %>
-        |
         <%= link_to "Edit", edit_slide_path(slide), class: "btn btn-primary" %>
         <%= link_to 'Destroy', slide, method: :delete, class: "btn btn-danger", data: { confirm: 'Are you sure?' } %>
       <% end %>
