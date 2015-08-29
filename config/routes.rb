@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :users, only: [:index, :show]
   resources :slides do
     resource :information, only: [:show], controller: "slides/information"
   end
