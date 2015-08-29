@@ -16,7 +16,7 @@
         Share URL: <%= slide.share_url %>
         </p>
         <span class="pull-right mute small">
-          <%= slide.user.nickname %>
+          <%= link_to slide.user.nickname, slide.user %>
         </span>
       </div>
     </div>
