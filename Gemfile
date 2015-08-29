@@ -11,6 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'jquery-ui-rails'
 gem 'jquery-turbolinks'
+gem 'active_decorator'
 gem 'kaminari'
 gem 'redcarpet'
 gem 'pygments.rb'

@@ -5,12 +5,20 @@ class ApplicationController < ActionController::Base
 
   helper_method :user_signed_in?, :current_user, :markdown_to_html
 
+  def not_found
+    raise ActionController::RoutingError.new('Not Found')
+  end
+
   def user_signed_in?
     !!current_user
   end
 
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
+  end
+
+  def can_browse_slide?(slide)
+    slide.published? || slide.user == current_user || slide.token == params[:token]
   end
 
   class HTMLwithPygments < Redcarpet::Render::HTML

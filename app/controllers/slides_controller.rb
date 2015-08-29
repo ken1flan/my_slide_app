@@ -5,7 +5,7 @@ class SlidesController < ApplicationController
   # GET /slides
   # GET /slides.json
   def index
-    @slides = Slide.all
+    @slides = Slide.published
   end
 
   # GET /slides/1
@@ -70,6 +70,7 @@ class SlidesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_slide
       @slide = Slide.find(params[:id])
+      not_found unless can_browse_slide?(@slide)
     end
 
     def set_owned_slide

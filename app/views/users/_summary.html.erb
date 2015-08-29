@@ -1,0 +1,17 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="media">
+      <div class="media-left">
+        <%= link_to user do %>
+          <%= image_tag user.icon_url, class: "media-object", style: "width: 64px; height: 64px;" %>
+
+        <% end %>
+      </div>
+      <div class="media-body">
+        <div class="media-heading">
+          <%= link_to user.nickname, user %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

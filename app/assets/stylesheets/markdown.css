@@ -1,14 +1,14 @@
-.markdown_body table {
+.markdown-body table {
   border: 1px solid #999;
 }
 
-.markdown_body table th{
+.markdown-body table th{
   border: 1px solid #999;
   background-color: #eee;
   padding: 0.5em 1em;
 }
 
-.markdown_body table td{
+.markdown-body table tbody td{
   border: 1px solid #999;
   padding: 0.5em 1em;
 }
