@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815082917) do
+ActiveRecord::Schema.define(version: 20150829100758) do
 
   create_table "identities", force: :cascade do |t|
     t.integer  "user_id"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20150815082917) do
     t.boolean  "published",              default: false, null: false
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
+    t.string   "token"
   end
 
   add_index "slides", ["user_id"], name: "index_slides_on_user_id"
