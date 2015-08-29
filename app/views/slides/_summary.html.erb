@@ -12,6 +12,9 @@
         <h4 class="media-heading"><%= link_to slide.title, slide %></h4>
         <%= slide.description %>
         <br>
+        <p class="text-muted">
+        Share URL: <%= slide.share_url %>
+        </p>
         <span class="pull-right mute small">
           <%= slide.user.nickname %>
         </span>
