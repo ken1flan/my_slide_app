@@ -3,6 +3,7 @@
   <%= @user.nickname %>
 </h1>
 <h3 class="text-center">Listing <%= @user.nickname %>'s Slides</h3>
+<br>
 <% @slides.each do |slide| %>
   <div class="col-md-6">
     <%= render "slides/summary", slide: slide, operation: true %>

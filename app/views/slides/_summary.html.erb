@@ -10,10 +10,14 @@
       <% end %>
       <div class="media-body">
         <h4 class="media-heading"><%= link_to slide.title, slide %></h4>
-        <%= slide.description %>
+        <% if defined?(truncate_strings) && truncate_strings %>
+          <%= slide.description.truncate(25) %>
+        <% else %>
+          <%= slide.description %>
+        <% end %>
         <br>
-        <p class="text-muted">
-        Share URL: <%= slide.share_url %>
+        <p class="text-muted small">
+        URL: <%= slide.share_url %>
         </p>
         <span class="pull-right mute small">
           <%= link_to slide.user.nickname, slide.user %>
